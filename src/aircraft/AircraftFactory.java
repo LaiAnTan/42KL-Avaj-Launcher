@@ -14,11 +14,11 @@ public class AircraftFactory
 
 	private static AircraftFactory instance = null;
 
-	private static int p_id = 0;
+	private int p_id = 0;
 
 	private AircraftFactory()
 	{
-	
+		
 	}
 
 	public static AircraftFactory getInstance()
@@ -31,7 +31,6 @@ public class AircraftFactory
 	// need to specify exceptions thrown
 	public Flyable newAircraft(String p_type, String p_name, Coordinates p_Coordinates) throws TypeNotFoundException
 	{
-
 		p_id += 1;
 
 		switch (p_type)

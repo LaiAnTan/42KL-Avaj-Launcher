@@ -15,20 +15,25 @@ public class Tower
 
 	 */
 	
-	private ArrayList<Flyable> observers = new ArrayList<>();
+	private ArrayList<Flyable> observers = new ArrayList<Flyable>();
 
 	public void register(Flyable p_flyable)
 	{
-		this.observers.add(p_flyable);
+		observers.add(p_flyable);
 	}
 
 	public void unregister(Flyable p_flyable)
 	{
-		this.observers.remove(p_flyable);
+		observers.remove(p_flyable);
 	}
 
 	protected void conditionChanged()
 	{
+		for (Flyable aircraft : new ArrayList<Flyable>(this.observers))
+		{
+			aircraft.updateConditions();
+		}
 
+		System.out.println(this.observers.size());
 	}
 }

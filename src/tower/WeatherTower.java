@@ -1,20 +1,22 @@
 package tower;
 
 import coordinates.Coordinates;
+import weather.WeatherProvider;
+import aircraft.Flyable;
 
 public class WeatherTower extends Tower
 {
 
-	public String[] getWeather(Coordinates p_coordinates)
-	{
-		String[] weather = null;
+	private WeatherProvider wp = WeatherProvider.getInstance();
 
-		return (weather);
+	public String getWeather(Coordinates p_coordinates)
+	{
+		return (wp.getCurrentWeather(p_coordinates));
 	}
 
 	public void changeWeather()
 	{
-
+		this.conditionChanged();
 	}
 
 }

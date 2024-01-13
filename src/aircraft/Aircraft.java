@@ -12,12 +12,14 @@ public class Aircraft extends Flyable
 
 	protected Aircraft(long p_id, String p_name, Coordinates p_coordinate)
 	{
-
+		super();
+		this.id = p_id;
+		this.name = p_name;
+		this.coordinates = p_coordinate;
 	}
 
 	public void updateConditions()
 	{
-		
 	}
 
 }

@@ -3,6 +3,7 @@ package parser;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.List;
 
@@ -35,7 +36,7 @@ public class Parser
 			file_reader.close();
 	}
 
-	private void parseInputFile(Scanner file_reader) throws InvalidFileFormatException, TypeNotFoundException
+	private void parseInputFile(Scanner file_reader) throws InvalidFileFormatException, TypeNotFoundException, InputMismatchException
 	{
 		String line;
 		String[] tokens;
@@ -46,7 +47,14 @@ public class Parser
 		int latitude;
 		int height;
 
-		this.simulation_runs = file_reader.nextInt();
+		try
+		{
+			this.simulation_runs = file_reader.nextInt();
+		}
+		catch (InputMismatchException e)
+		{
+			throw (new InvalidFileFormatException());
+		}
 
 		while (file_reader.hasNextLine())
 		{

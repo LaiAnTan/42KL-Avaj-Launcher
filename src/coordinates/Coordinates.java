@@ -8,7 +8,7 @@ public class Coordinates
 	private int height;
 
 	// package private constructor, only can be accessed by classes from the same package
-	Coordinates(int p_longitude, int p_latitude, int p_height)
+	public Coordinates(int p_longitude, int p_latitude, int p_height)
 	{
 		longitude = p_longitude;
 		latitude = p_latitude;
