@@ -1,4 +1,10 @@
-public class Aircraft extends Flyable{
+package aircraft;
+
+import coordinates.Coordinates;
+
+
+public class Aircraft extends Flyable
+{
 	
 	protected long id;
 	protected String[] name;
@@ -9,5 +15,9 @@ public class Aircraft extends Flyable{
 
 	}
 
-	
+	public void updateConditions()
+	{
+		
+	}
+
 }

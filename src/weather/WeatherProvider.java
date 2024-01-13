@@ -1,4 +1,9 @@
-public class WeatherProvider {
+package weather;
+
+import coordinates.Coordinates;
+
+public class WeatherProvider
+{
 
 	/*
 	 Singleton implementation:
