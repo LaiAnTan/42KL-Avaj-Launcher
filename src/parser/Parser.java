@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import aircraft.TypeNotFoundException;
 
@@ -15,34 +16,25 @@ public class Parser
 	public int simulation_runs;
 	public ArrayList<AircraftData> aircrafts = new ArrayList<>();
 	
-	public Parser(String filename) throws ParseErrorException
+	public Parser(String filename) throws InvalidFileFormatException, FileNotFoundException
 	{
 		System.out.println("Parser: Constructor called");
 		
 		File input = new File(filename);
 		Scanner file_reader;
 
-		try
-		{
-			file_reader = new Scanner(input);
-			parseInputFile(file_reader);
-		}
-		catch (FileNotFoundException | InvalidFileFormatException | TypeNotFoundException e) // can catch multiple types
-		{
-			throw new ParseErrorException(e.getMessage());
-		}
+		file_reader = new Scanner(input);
+		parseInputFile(file_reader);
 		
 		if (file_reader instanceof Scanner)
 			file_reader.close();
 	}
 
-	private void parseInputFile(Scanner file_reader) throws InvalidFileFormatException, TypeNotFoundException, InputMismatchException
+	private void parseInputFile(Scanner file_reader) throws InvalidFileFormatException
 	{
 		String line;
 		String[] tokens;
 
-		String type;
-		String name;
 		int longitude;
 		int latitude;
 		int height;
@@ -51,7 +43,7 @@ public class Parser
 		{
 			this.simulation_runs = file_reader.nextInt();
 		}
-		catch (InputMismatchException e)
+		catch (NoSuchElementException e)
 		{
 			throw (new InvalidFileFormatException());
 		}
@@ -64,29 +56,22 @@ public class Parser
 				continue;
 
 			tokens = line.split(" ");
-
-			if (tokens.length != 5)
+			
+			if (tokens.length != 5 || isValidType(tokens[0]) == false)
 				throw (new InvalidFileFormatException());
-
-			type = tokens[0];
-
-			if (isValidType(type) == false)
-				throw (new TypeNotFoundException());
-
-			name = tokens[1];
 
 			try
 			{
 				longitude = Integer.parseInt(tokens[2]);
 				latitude = Integer.parseInt(tokens[3]);
 				height = Integer.parseInt(tokens[4]);
+
+				this.aircrafts.add(new AircraftData(tokens[0], tokens[1], longitude, latitude, height));
 			}
 			catch (NumberFormatException e)
 			{
 				throw (new InvalidFileFormatException());
 			}
-
-			this.aircrafts.add(new AircraftData(type, name, longitude, latitude, height));
 		}
 		return ;
 	}

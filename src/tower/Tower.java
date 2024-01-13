@@ -33,7 +33,10 @@ public class Tower
 		{
 			aircraft.updateConditions();
 		}
+	}
 
-		System.out.println(this.observers.size());
+	public int getObserversSize()
+	{
+		return (this.observers.size());
 	}
 }

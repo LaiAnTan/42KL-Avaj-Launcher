@@ -1,5 +1,7 @@
 package aircraft;
 
+import java.io.IOException;
+
 import coordinates.Coordinates;
 
 public class Helicopter extends Aircraft
@@ -53,7 +55,7 @@ public class Helicopter extends Aircraft
 		
 		this.coordinates =  new Coordinates(longitude, latitude, height);
 
-		System.out.println(type + "#" + this.name + "(" + this.id + "): " + msg);
+		writeStatusToFile(type + "#" + this.name + "(" + this.id + "): " + msg + "\n");
 	}
 
 }

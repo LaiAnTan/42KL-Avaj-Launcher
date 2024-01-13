@@ -2,7 +2,6 @@ package tower;
 
 import coordinates.Coordinates;
 import weather.WeatherProvider;
-import aircraft.Flyable;
 
 public class WeatherTower extends Tower
 {

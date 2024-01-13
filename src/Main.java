@@ -1,7 +1,9 @@
 
-import coordinates.Coordinates;
+import java.io.IOException;
+import java.io.FileWriter;
+
+import aircraft.TypeNotFoundException;
 import parser.*;
-import weather.WeatherProvider;
 import simulator.*;
 
 class Main
@@ -10,27 +12,27 @@ class Main
 	{
 		Parser parser;
 		Simulator simulator;
+		FileWriter output;
+
+		if (args.length != 1)
+			return ;
 		
 		try
 		{
-			parser = new Parser("assets/scenario.txt");
+			output = new FileWriter("simulation.txt", false);
+			output.write("");
+			output.close();
+			parser = new Parser(args[0]);
+
 			simulator = new Simulator(parser.simulation_runs, parser.aircrafts);
 		
 			simulator.runSimulation();
 		}
-		catch (ParseErrorException | SimulationErrorException e)
+		catch (InvalidFileFormatException | TypeNotFoundException | IOException e)
 		{
 			System.err.println(e.getMessage());
 			return ;
 		}
-
-		// System.out.println(parser.simulation_runs);
-
-		// for (AircraftData data : parser.aircrafts) {
-		// 	System.out.println(data.type + " " + data.name + " "  + data.longitude + " "  + data.latitude + " " + data.height);
-		// }
-
-
 	}
 
 }

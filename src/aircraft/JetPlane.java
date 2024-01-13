@@ -54,7 +54,7 @@ public class JetPlane extends Aircraft
 		
 		this.coordinates =  new Coordinates(longitude, latitude, height);
 
-		System.out.println(type + "#" + this.name + "(" + this.id + "): " + msg);
+		writeStatusToFile(type + "#" + this.name + "(" + this.id + "): " + msg + "\n");
 	}
 
 }
