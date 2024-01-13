@@ -1,7 +1,6 @@
 package simulator;
 
 import java.util.ArrayList;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 

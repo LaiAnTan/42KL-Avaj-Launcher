@@ -3,12 +3,9 @@ package parser;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.List;
 import java.util.NoSuchElementException;
-
-import aircraft.TypeNotFoundException;
 
 public class Parser
 {

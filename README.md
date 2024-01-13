@@ -27,3 +27,5 @@ An introductory project to familiarize oneself with Java, in the form of an airs
 
 - instanceof keyword to check if variable is instance of a class
 - List is fixed size, ArrayList is dynamic size
+- can catch multiple exceptions
+- for each loop has a different syntax

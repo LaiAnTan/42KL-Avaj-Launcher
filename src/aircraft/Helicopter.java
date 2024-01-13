@@ -1,7 +1,5 @@
 package aircraft;
 
-import java.io.IOException;
-
 import coordinates.Coordinates;
 
 public class Helicopter extends Aircraft
