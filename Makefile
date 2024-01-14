@@ -2,7 +2,7 @@ SRC_PATH = src
 
 CLASSFILE_PATH = build
 
-SCENARIO_FILE = assets/scenario2.txt
+SCENARIO_FILE = assets/scenario.txt
 
 MAIN = Main
 

@@ -5,6 +5,7 @@ import java.io.FileWriter;
 import aircraft.TypeNotFoundException;
 import parser.*;
 import simulator.*;
+import tower.DowncastFailedException;
 
 class Main
 {
@@ -28,7 +29,7 @@ class Main
 		
 			simulator.runSimulation();
 		}
-		catch (InvalidFileFormatException | TypeNotFoundException | IOException e)
+		catch (InvalidFileFormatException | TypeNotFoundException | IOException | DowncastFailedException e)
 		{
 			System.err.println(e.getMessage());
 			return ;

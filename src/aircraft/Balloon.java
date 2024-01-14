@@ -1,6 +1,7 @@
 package aircraft;
 
 import coordinates.Coordinates;
+import util.Util;
 
 public class Balloon extends Aircraft
 {
@@ -24,20 +25,20 @@ public class Balloon extends Aircraft
 		{
 			case "RAIN":
 				height -= 5;
-				msg = "Its raining!";
+				msg = "Damn you rain! You messed up my balloon.";
 				break;
 			case "FOG":
 				height -= 3;
-				msg = "Its foggy!";
+				msg = "I cannot see anything in this fog!";
 				break;
 			case "SUN":
 				height += 4;
 				longitude += 2;
-				msg = "Its sunny!";
+				msg = "Let's enjoy the weather and take some pics.";
 				break;
 			case "SNOW":
 				height -= 15;
-				msg = "Its snowing!";
+				msg = "Its snowing. We're gonna crash.";
 				break;
 		}
 
@@ -49,12 +50,12 @@ public class Balloon extends Aircraft
 		{
 			height = 0;
 			this.weather_tower.unregister(this);
-			msg = "I landed.";
+			msg = "landing.";
 		}
 		
 		this.coordinates =  new Coordinates(longitude, latitude, height);
 
-		writeStatusToFile(type + "#" + this.name + "(" + this.id + "): " + msg + "\n");
+		Util.writeToFile(type + "#" + this.name + "(" + this.id + "): " + msg + "\n");
 	}
 
 }

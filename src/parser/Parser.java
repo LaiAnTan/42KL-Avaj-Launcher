@@ -14,9 +14,7 @@ public class Parser
 	public ArrayList<AircraftData> aircrafts = new ArrayList<>();
 	
 	public Parser(String filename) throws InvalidFileFormatException, FileNotFoundException
-	{
-		System.out.println("Parser: Constructor called");
-		
+	{	
 		File input = new File(filename);
 		Scanner file_reader;
 

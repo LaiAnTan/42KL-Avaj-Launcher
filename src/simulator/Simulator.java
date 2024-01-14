@@ -8,6 +8,7 @@ import aircraft.AircraftFactory;
 import aircraft.Flyable;
 import aircraft.TypeNotFoundException;
 import parser.AircraftData;
+import tower.DowncastFailedException;
 import tower.WeatherTower;
 import coordinates.Coordinates;
 
@@ -22,7 +23,7 @@ public class Simulator
 		this.aircrafts = aircrafts;
 	}
 
-	public void runSimulation() throws IOException, TypeNotFoundException
+	public void runSimulation() throws IOException, TypeNotFoundException, DowncastFailedException
 	{
 		int runs = 0;
 
@@ -37,7 +38,6 @@ public class Simulator
 				new Coordinates(aircraft_data.getLongitude(), aircraft_data.getLatitude(), aircraft_data.getHeight()));
 		
 			aircraft.registerTower(weather_tower);
-
 		}
 
 		while (runs < max_runs && weather_tower.getObserversSize() > 0)

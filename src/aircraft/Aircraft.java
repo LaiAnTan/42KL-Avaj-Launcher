@@ -1,12 +1,11 @@
 package aircraft;
 
-import java.io.FileWriter;
-import java.io.IOException;
-
 import coordinates.Coordinates;
 
 public class Aircraft extends Flyable
 {
+
+	protected static String type = "Aircraft";
 	
 	protected long id;
 	protected String name;
@@ -24,22 +23,18 @@ public class Aircraft extends Flyable
 	{
 	}
 
-	protected void writeStatusToFile(String msg)
+	public long getId()
 	{
-		// this exception is propogated all the way to Simulator class and rethrown there
-
-		FileWriter output;
-		
-		try
-		{
-			output = new FileWriter("simulation.txt", true);
-			output.write(msg);
-			output.close();
-		}
-		catch (IOException e)
-		{
-			System.err.println(e.getMessage());
-		}
+		return (this.id);
 	}
 
+	public String getName()
+	{
+		return (this.name);
+	}
+
+	public String getType()
+	{
+		return (type);
+	}
 }

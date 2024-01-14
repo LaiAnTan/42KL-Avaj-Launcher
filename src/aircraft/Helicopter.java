@@ -1,6 +1,7 @@
 package aircraft;
 
 import coordinates.Coordinates;
+import util.Util;
 
 public class Helicopter extends Aircraft
 {
@@ -28,16 +29,16 @@ public class Helicopter extends Aircraft
 				break;
 			case "FOG":
 				longitude += 1;
-				msg = "Its foggy!";
+				msg = "Fog you!";
 				break;
 			case "SUN":
 				height += 2;
 				longitude += 10;
-				msg = "Its sunny!";
+				msg = "This is hot.";
 				break;
 			case "SNOW":
 				height -= 12;
-				msg = "Its snowing!";
+				msg = "My rotor is going to freeze!";
 				break;
 		}
 
@@ -48,12 +49,12 @@ public class Helicopter extends Aircraft
 		{
 			height = 0;
 			this.weather_tower.unregister(this);
-			msg = "I landed.";
+			msg = "landing.";
 		}
 		
 		this.coordinates =  new Coordinates(longitude, latitude, height);
 
-		writeStatusToFile(type + "#" + this.name + "(" + this.id + "): " + msg + "\n");
+		Util.writeToFile(type + "#" + this.name + "(" + this.id + "): " + msg + "\n");
 	}
 
 }
