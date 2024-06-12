@@ -14,6 +14,12 @@ public class Helicopter extends Aircraft
 	}
 
 	@Override
+	public String getType()
+	{
+		return (type);
+	}
+
+	@Override
 	public void updateConditions()
 	{
 		int longitude = this.coordinates.getLongitude();
