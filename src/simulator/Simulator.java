@@ -48,10 +48,10 @@ public class Simulator
 
 		output = new FileWriter("simulation.txt", true);
 
-		if (runs == 25)
-			output.write("Max runs reached, ending simulation.");
-		else if (weather_tower.getObserversSize() == 0)
-			output.write("All aircrafts landed, ending simulation.");
+		if (weather_tower.getObserversSize() == 0)
+			output.write("All aircrafts landed, ending simulation.\n");
+		else
+			output.write("Max runs reached, ending simulation.\n");
 
 		output.close();
 	}

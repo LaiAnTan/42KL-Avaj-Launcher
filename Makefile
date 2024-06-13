@@ -10,7 +10,7 @@ all: re
 
 compile:
 	@echo "Compiling..."
-
+	mkdir -p $(CLASSFILE_PATH)
 	find $(SRC_PATH) -name "*.java" > sources.txt
 	javac @sources.txt -d $(CLASSFILE_PATH)
 

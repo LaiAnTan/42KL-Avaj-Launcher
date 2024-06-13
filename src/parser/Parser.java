@@ -61,6 +61,9 @@ public class Parser
 				latitude = Integer.parseInt(tokens[3]);
 				height = Integer.parseInt(tokens[4]);
 
+				if (height > 100 || height <= 0)
+					throw (new NumberFormatException());
+
 				this.aircrafts.add(new AircraftData(tokens[0], tokens[1], longitude, latitude, height));
 			}
 			catch (NumberFormatException e)
